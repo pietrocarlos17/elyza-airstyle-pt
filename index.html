@@ -1994,7 +1994,7 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
     <div class="cod-field">
       <label for="codAddress">Morada de entrega</label>
       <input type="text" id="codAddress" name="address" autocomplete="street-address" placeholder="Rua, número, andar" required>
-      <span class="cod-error">Indica a tua morada completa</span>
+      <span class="cod-error">Indica a tua morada com número (ex. Rua das Flores 25)</span>
     </div>
 
     <div class="row-2">
@@ -2158,7 +2158,7 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
   const fields=[
     {id:'codName',min:3},
     {id:'codPhone',optional:true,validate:v=>{const d=(v||'').replace(/\D/g,'');return d.length>=9&&d.length<=15}},
-    {id:'codAddress',min:5},
+    {id:'codAddress',min:5,validate:v=>/\d/.test(v),blockIfInvalid:true},
     {id:'codCity',min:2},
     {id:'codZip',pattern:/^[0-9]{4}-?[0-9]{3}$/},
     {id:'codProvince',min:1},
@@ -2189,11 +2189,19 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
     e.preventDefault();
     // Mark visual warnings on every field (formato libre — solo aviso).
     fields.forEach(f=>validateField(f));
-    // Block submit if ANY required field is empty. Phone, email and notes son opcionales.
+    // Block submit if ANY required field is empty OR fails a blocking validation.
+    // Phone, email and notes são opcionais.
     const empty=fields.filter(f=>{
       if(f.optional)return false;
       const el=document.getElementById(f.id);
-      return !el||!(el.value||'').trim();
+      const v=(el&&el.value||'').trim();
+      if(!v)return true;
+      if(f.blockIfInvalid){
+        if(f.min&&v.length<f.min)return true;
+        if(f.pattern&&!f.pattern.test(v))return true;
+        if(f.validate&&!f.validate(v))return true;
+      }
+      return false;
     });
     if(empty.length){
       const firstEmpty=document.getElementById(empty[0].id);
