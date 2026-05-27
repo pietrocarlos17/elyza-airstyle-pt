@@ -910,6 +910,56 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
   .cart.thanks .cod-submit-wrap{display:none}
   .cart.thanks .cod-thanks{display:flex}
 
+  /* ---------- COD trust enhancements ---------- */
+  .cod-trust-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
+    padding:14px 22px;border-bottom:1px solid var(--line);background:#fcfaf6;
+  }
+  .trust-badge{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+  .trust-badge svg{color:var(--accent);flex-shrink:0}
+  .trust-badge .t{font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.01em;line-height:1.2}
+  .trust-badge .s{font-size:9.5px;color:var(--muted);font-weight:500;letter-spacing:.02em;line-height:1.2}
+  @media(max-width:520px){.trust-badge .s{font-size:8.5px}.cod-trust-row{padding:12px 14px;gap:4px}}
+
+  .cod-urgency-soft{
+    padding:10px 28px;background:#fff8eb;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:11.5px;color:var(--ink-2);text-align:center;
+  }
+  .cod-urgency-soft .live-dot{width:7px;height:7px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;flex-shrink:0}
+  .cod-urgency-soft strong{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+
+  .cod-testimonial{
+    padding:14px 28px;border-bottom:1px solid var(--line);text-align:center;background:#fff;
+    min-height:64px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .cod-testimonial .t-stars{color:var(--accent);font-size:12px;letter-spacing:2px;margin-bottom:4px}
+  .cod-testimonial .t-quote{font-size:13px;color:var(--ink);font-style:italic;font-weight:500;line-height:1.3;transition:opacity .35s}
+  .cod-testimonial .t-author{font-size:10.5px;color:var(--muted);margin-top:3px;letter-spacing:.02em;transition:opacity .35s}
+  .cod-testimonial.fading .t-quote,.cod-testimonial.fading .t-author{opacity:.15}
+
+  .cod-reassure{
+    text-align:center;font-size:11px;color:var(--soft);
+    padding:0 28px 6px;line-height:1.5;
+  }
+
+  .cod-logistics{
+    padding:10px 28px 18px;
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  }
+  .cod-logistics-label{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cod-logistics-marks{display:flex;gap:6px;align-items:center}
+  .logistics-mark{
+    padding:4px 9px;border:1px solid var(--line);background:#fff;
+    font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--ink);font-family:'Poppins',sans-serif;
+  }
+
+  .cart.thanks .cod-trust-row,
+  .cart.thanks .cod-urgency-soft,
+  .cart.thanks .cod-testimonial,
+  .cart.thanks .cod-reassure,
+  .cart.thanks .cod-logistics{display:none}
+
   /* ---------- REVIEWS ---------- */
   .reviews{background:var(--white);border-top:1px solid var(--line)}
   .reviews .wrap{max-width:1160px}
@@ -1962,6 +2012,24 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
     </div>
   </div>
 
+  <div class="cod-trust-row">
+    <div class="trust-badge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l9 4v6c0 5-3.5 9.5-9 10-5.5-.5-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span class="t">Pagamento 100% protegido</span>
+      <span class="s">Sem pagamentos antecipados</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 1015-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+      <span class="t">Devolução grátis</span>
+      <span class="s">14 dias sem perguntas</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <span class="t">Entrega 24-48h</span>
+      <span class="s">TIPSA · GLS</span>
+    </div>
+  </div>
+
   <div class="cart-gift">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
     <span><strong>Kit de penteado oferta</strong> incluído — avaliado em €89</span>
@@ -1970,6 +2038,17 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
   <div class="cod-trust">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l9 4v6c0 5-3.5 9.5-9 10-5.5-.5-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
     <span><strong>Pagamento à cobrança.</strong> Pagas €<span id="codTotalInline">69</span> ao estafeta quando receberes a encomenda. Sem cartão.</span>
+  </div>
+
+  <div class="cod-urgency-soft">
+    <span class="live-dot"></span>
+    <span><strong id="liveViewers">23</strong> pessoas a ver · <strong id="liveOrders">147</strong> encomendas hoje</span>
+  </div>
+
+  <div class="cod-testimonial" id="rotTestimonial">
+    <div class="t-stars">★★★★★</div>
+    <div class="t-quote" id="rotQuote">"Chegou em 24h, tudo perfeito"</div>
+    <div class="t-author" id="rotAuthor">— Beatriz S., Lisboa</div>
   </div>
 
   <form class="cod-form" id="codForm" novalidate>
@@ -2046,6 +2125,8 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
     </div>
   </div>
 
+  <div class="cod-reassure">🔒 Sem pagamentos antecipados · Pagas só quando receberes em casa</div>
+
   <div class="cod-submit-wrap">
     <button type="button" class="btn" id="codSubmit">
       <span>Confirmar encomenda</span>
@@ -2055,6 +2136,14 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
       <span>Pagar ao receber</span>
       <span>Sem cartão</span>
       <span>Devolução 14 dias</span>
+    </div>
+  </div>
+
+  <div class="cod-logistics">
+    <span class="cod-logistics-label">Entregue por</span>
+    <div class="cod-logistics-marks">
+      <span class="logistics-mark">TIPSA</span>
+      <span class="logistics-mark">GLS</span>
     </div>
   </div>
 
@@ -2184,6 +2273,39 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
   });
 
   const generateOrderId=()=>'#'+(Math.floor(Math.random()*99000)+1000);
+
+  // ---------- Live social-proof counters (randomized per session) ----------
+  (function(){
+    const v=document.getElementById('liveViewers');
+    const o=document.getElementById('liveOrders');
+    if(v)v.textContent=Math.floor(Math.random()*15+12);    // 12-26
+    if(o)o.textContent=Math.floor(Math.random()*60+90);    // 90-149
+  })();
+
+  // ---------- Rotating testimonials ----------
+  (function(){
+    const TS=[
+      {q:'"Chegou em 24h, tudo perfeito"',a:'— Beatriz S., Lisboa'},
+      {q:'"Produto original, super contente"',a:'— Joana S., Porto'},
+      {q:'"Paguei ao receber, sem complicação"',a:'— Mariana C., Coimbra'},
+      {q:'"O meu cabelo ficou incrível"',a:'— Inês P., Braga'},
+      {q:'"Atendimento ao cliente impecável"',a:'— Catarina R., Aveiro'},
+    ];
+    const wrap=document.getElementById('rotTestimonial');
+    const q=document.getElementById('rotQuote');
+    const a=document.getElementById('rotAuthor');
+    if(!wrap||!q||!a)return;
+    let i=0;
+    setInterval(()=>{
+      wrap.classList.add('fading');
+      setTimeout(()=>{
+        i=(i+1)%TS.length;
+        q.textContent=TS[i].q;
+        a.textContent=TS[i].a;
+        wrap.classList.remove('fading');
+      },350);
+    },4000);
+  })();
 
   codSubmit.addEventListener('click',(e)=>{
     e.preventDefault();
