@@ -2026,7 +2026,12 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
 
     <div class="cod-field">
       <label for="codNotes">Melhor horário para receber <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(opcional)</span></label>
-      <textarea id="codNotes" name="notes" placeholder="Ex. de manhã ou à tarde"></textarea>
+      <select id="codNotes" name="notes">
+        <option value="" disabled selected>Seleciona um horário</option>
+        <option>De manhã</option>
+        <option>À tarde</option>
+        <option>Qualquer horário</option>
+      </select>
       <span style="font-size:11px;color:var(--muted);line-height:1.5;margin-top:2px;display:block">É apenas uma sugestão. Não garante a hora exata de entrega.</span>
     </div>
   </form>
