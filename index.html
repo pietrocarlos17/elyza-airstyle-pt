@@ -95,6 +95,19 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
     text-transform:uppercase;
     user-select:none;
   }
+  .brand-locale{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-left:10px;padding:3px 8px;
+    border:1px solid var(--line);border-radius:999px;
+    font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);background:#fff;line-height:1;
+    vertical-align:middle;
+  }
+  .brand-locale .flag{font-size:13px;line-height:1}
+  @media(max-width:520px){
+    .brand-locale{padding:2px 6px;font-size:9px;letter-spacing:.1em;margin-left:6px}
+    .brand-locale .flag{font-size:11px}
+  }
   .nav-links{display:flex;gap:36px;font-size:13px;font-weight:400}
   .nav-links a{color:var(--soft);transition:color .25s}
   .nav-links a:hover{color:var(--ink)}
@@ -615,16 +628,49 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
   }
   .f-social a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
+  /* Trust badges (genéricos, visuales) */
+  .f-trust{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    padding:34px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .f-trust-item{display:flex;align-items:center;gap:14px}
+  .f-trust-ico{
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.04);border:1px solid rgba(201,169,141,.25);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent-2);flex-shrink:0;
+  }
+  .f-trust-h{font-size:12px;color:#fff;font-weight:600;letter-spacing:.04em;line-height:1.2}
+  .f-trust-s{font-size:11px;color:rgba(255,255,255,.55);margin-top:3px;letter-spacing:.02em;line-height:1.3}
+  @media(max-width:820px){.f-trust{grid-template-columns:repeat(2,1fr);gap:20px;padding:26px 0}}
+  @media(max-width:480px){.f-trust{grid-template-columns:1fr;gap:16px}}
+
   .f-pay{
-    padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   .f-pay-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500}
-  .f-pay-marks{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .f-pay-mark{
-    padding:6px 12px;border:1px solid rgba(255,255,255,.14);
-    font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.7);
+  .f-pay-marks{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .pay-card{
+    height:26px;display:inline-flex;align-items:center;justify-content:center;
+    background:#fff;color:#000;border-radius:4px;
+    font-size:10px;font-weight:800;letter-spacing:.02em;padding:0 10px;
+    font-family:-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    box-shadow:0 1px 3px rgba(0,0,0,.18);min-width:44px;
   }
+  .pay-visa{background:#1a1f71;color:#fff;font-style:italic;letter-spacing:.08em}
+  .pay-mc{background:#fff;position:relative;width:46px;padding:0;font-size:0}
+  .pay-mc::before,.pay-mc::after{content:"";width:18px;height:18px;border-radius:50%;position:absolute;top:50%;transform:translateY(-50%)}
+  .pay-mc::before{background:#eb001b;left:6px}
+  .pay-mc::after{background:#f79e1b;right:6px;mix-blend-mode:multiply}
+  .pay-maestro{background:#fff;position:relative;width:46px;padding:0;font-size:0}
+  .pay-maestro::before,.pay-maestro::after{content:"";width:18px;height:18px;border-radius:50%;position:absolute;top:50%;transform:translateY(-50%)}
+  .pay-maestro::before{background:#0099df;left:6px}
+  .pay-maestro::after{background:#ed0006;right:6px;mix-blend-mode:multiply}
+  .pay-amex{background:#006fcf;color:#fff;letter-spacing:.06em}
+  .pay-paypal{background:#003087;color:#009cde;font-style:italic;letter-spacing:.01em}
+  .pay-applepay{background:#000;color:#fff;letter-spacing:.02em}
+  .pay-cash{background:#1e6b3a;color:#fff;letter-spacing:.04em}
 
   .f-bot{padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.04em}
   .f-bot .legal{display:flex;gap:26px;flex-wrap:wrap}
@@ -1324,7 +1370,7 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
         <a href="#shop">Encomendar</a>
       </div>
     </div>
-    <a href="#" class="brand" aria-label="ELYZA"><span class="brand-mark">ELYZA</span></a>
+    <a href="#" class="brand" aria-label="ELYZA Portugal"><span class="brand-mark">ELYZA</span><span class="brand-locale"><span class="flag" aria-hidden="true">🇵🇹</span>Portugal</span></a>
     <div class="nav-right">
       <a href="#">Apoio ao cliente</a>
       <a href="#shop" class="ico-bag">Encomendar</a>
@@ -1941,13 +1987,37 @@ fbq('track','ViewContent',{content_name:'Elyza AirStyle PT',content_category:'Ha
       </div>
     </div>
 
+    <!-- Garantias -->
+    <div class="f-trust">
+      <div class="f-trust-item">
+        <div class="f-trust-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l9 4v6c0 5-3.5 9.5-9 10-5.5-.5-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div><div class="f-trust-h">Pagamento Seguro</div><div class="f-trust-s">Só pagas ao receber</div></div>
+      </div>
+      <div class="f-trust-item">
+        <div class="f-trust-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/></svg></div>
+        <div><div class="f-trust-h">+12.000 Clientes</div><div class="f-trust-s">Opiniões verificadas</div></div>
+      </div>
+      <div class="f-trust-item">
+        <div class="f-trust-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
+        <div><div class="f-trust-h">Devolução 14 dias</div><div class="f-trust-s">Sem perguntas</div></div>
+      </div>
+      <div class="f-trust-item">
+        <div class="f-trust-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="6" width="14" height="11" rx="2"/><path d="M15 11h5l3 3v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <div><div class="f-trust-h">Entrega Express</div><div class="f-trust-s">Grátis 24-48h Portugal</div></div>
+      </div>
+    </div>
+
+    <!-- Métodos de pagamento -->
     <div class="f-pay">
-      <span class="f-pay-label">Pagamento à cobrança · Sem cartão · Sem risco</span>
+      <span class="f-pay-label">Métodos de pagamento aceites ao receber</span>
       <div class="f-pay-marks">
-        <span class="f-pay-mark">Pagamento em dinheiro</span>
-        <span class="f-pay-mark">Pagar ao receber</span>
-        <span class="f-pay-mark">Entrega 24-48h</span>
-        <span class="f-pay-mark">Devolução 14 dias</span>
+        <span class="pay-card pay-cash">DINHEIRO</span>
+        <span class="pay-card pay-visa">VISA</span>
+        <span class="pay-card pay-mc" aria-label="Mastercard"></span>
+        <span class="pay-card pay-maestro" aria-label="Maestro"></span>
+        <span class="pay-card pay-amex">AMEX</span>
+        <span class="pay-card pay-applepay">Pay</span>
+        <span class="pay-card pay-paypal">PayPal</span>
       </div>
     </div>
 
